@@ -1,0 +1,11 @@
+
+.row {
+    padding-top: 10px;
+}
+
+#screen {
+    background-color: #DFD6E5;
+    padding-left: 1rem;
+    border-color: black;
+    border-width: 1rem;
+}
