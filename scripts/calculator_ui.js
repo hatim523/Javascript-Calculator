@@ -1,15 +1,12 @@
-
-
-
-
-export function update_screen(calculator_object, result_screen) {
-    result_screen.innerText = calculator_object.screen_display;
+export function updateScreen(calculatorObject, resultScreen) {
+    // eslint-disable-next-line no-param-reassign
+    resultScreen.innerText = calculatorObject.screenDisplay;
 }
 
-export function get_operand(elementRef) {
+export function getOperand(elementRef) {
     return elementRef.srcElement.innerText;
 }
 
-export function get_operator(elementRef) {
+export function getOperator(elementRef) {
     return elementRef.srcElement.innerText;
 }

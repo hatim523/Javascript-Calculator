@@ -1,40 +1,36 @@
+import Calculator from './calculator.js';
+import { getOperand, getOperator, updateScreen } from './calculator_ui.js';
 
-import Calculator from "./calculator.js";
-import {get_operand, get_operator, update_screen} from "./calculator_ui.js";
+const calculator = new Calculator();
 
-
-let calculator = new Calculator();
-
-calculator.clear_result()
-
-let result_screen = document.getElementById("screen");
-
-// attaching event listeners to operands
-let operands = document.querySelectorAll(".col-3 .btn-outline-dark");
-operands.forEach((op) => op.addEventListener('click', add_operand));
-
-// attaching event listeners to operators
-let operators = document.querySelectorAll(".btn-outline-info");
-operators.forEach((op) => op.addEventListener('click', add_operator));
-document.querySelector(".btn-outline-success").addEventListener("click", add_operator)
-
-document.getElementById("clear_result").addEventListener('click', clear_result);
-
+calculator.clear_result();
+const resultScreen = document.getElementById('screen');
 
 // helper functions
-function clear_result() {
+function clearResult() {
     calculator.clear_result();
-    update_screen(calculator, result_screen);
+    updateScreen(calculator, resultScreen);
 }
 
-function add_operand(elementRef) {
-    let operand = get_operand(elementRef);
+function addOperand(elementRef) {
+    const operand = getOperand(elementRef);
     calculator.add_operand(operand);
-    update_screen(calculator, result_screen);
+    updateScreen(calculator, resultScreen);
 }
 
-function add_operator(elementRef) {
-    let operator = get_operator(elementRef);
+function addOperator(elementRef) {
+    const operator = getOperator(elementRef);
     calculator.add_operator(operator);
-    update_screen(calculator, result_screen);
+    updateScreen(calculator, resultScreen);
 }
+
+// attaching event listeners to operands
+const operands = document.querySelectorAll('.col-3 .btn-outline-dark');
+operands.forEach((op) => op.addEventListener('click', addOperand));
+
+// attaching event listeners to operators
+const operators = document.querySelectorAll('.btn-outline-info');
+operators.forEach((op) => op.addEventListener('click', addOperator));
+document.querySelector('.btn-outline-success').addEventListener('click', addOperator);
+
+document.getElementById('clear_result').addEventListener('click', clearResult);

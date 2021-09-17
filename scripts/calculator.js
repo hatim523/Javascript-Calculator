@@ -1,6 +1,6 @@
 
 export default class Calculator {
-    
+
     operator = "";
     operand_1 = "";
     operand_2 = "";
@@ -9,7 +9,7 @@ export default class Calculator {
         this.operator = "";
     }
 
-    get screen_display() {
+    get screenDisplay() {
         return this.operand_1 !== '' ? `${this.operand_1} ${this.operator} ${this.operand_2}` : '0';
     }
 
@@ -28,7 +28,7 @@ export default class Calculator {
         let num1 = +this.operand_1;
         let num2 = +this.operand_2;
 
-        switch(this.operator) {
+        switch (this.operator) {
             case '+':
                 return num1 + num2;
             case '-':
@@ -56,8 +56,7 @@ export default class Calculator {
 
         // if an operator has already been applied
         let result = this.compute_result();
-        
-        console.log(operator)
+
         this.operand_1 = result;
         this.operand_2 = '';
         this.operator = operator === '=' ? '' : operator;
